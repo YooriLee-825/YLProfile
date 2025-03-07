@@ -4,6 +4,10 @@
 **YLProfile** is a personal portfolio website built with **Next.js, TypeScript, and Tailwind CSS**.  
 This project serves as an online profile, showcasing personal information, projects, and contact details.
 
+🚧 **This site is currently under construction!** 🚧  
+Stay tuned – something awesome is coming soon! 🎉✨  
+Come visit again once it's ready! 🏡💖
+
 ## 🚀 Features
 - 🔥 **Modern UI/UX**: Built with Tailwind CSS for a sleek and responsive design.
 - 🛠️ **Tech Stack**: Utilizes Next.js and TypeScript for scalability and performance.
