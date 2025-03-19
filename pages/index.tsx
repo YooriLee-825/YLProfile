@@ -1,6 +1,8 @@
 import React from 'react';
 import ExperienceList from '../components/ExperienceList';
 import SocialIcons from '../components/SocialIcons';
+import ProjectList from '../components/ProjectList';
+import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
   return (
@@ -45,9 +47,9 @@ const Home: React.FC = () => {
         </aside>
 
         {/* 오른쪽 메인 콘텐츠 (60%) */}
-        <main className="w-3/5 ml-auto p-10 h-screen">
+        <main id="about" className="w-3/5 ml-auto p-10 h-screen">
           {/* 소개 섹션 */}
-          <section id="about" className="max-w-2xl">
+          <section className="max-w-2xl">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
             <p className="text-gray-700 leading-relaxed">
               I'm a developer passionate about learning new knowledge and
@@ -79,10 +81,15 @@ const Home: React.FC = () => {
             href="/Yoori-Lee-Resume.pdf" // PDF 파일의 경로
             target="_blank"
             rel="noopener noreferrer"
-            className="text-lg font-bold text-gray-600 mt-2 hover:text-gray-400 flex items-center gap-1"
+            className="block text-lg font-semibold text-gray-800 hover:text-gray-600 mt-10 mb-6 mx-auto"
           >
             View Full Résumé
           </a>
+
+          {/* 프로젝트 섹션 추가 */}
+          <ProjectList />
+          {/* Footer 추가 */}
+          <Footer />
         </main>
       </div>
     </div>
