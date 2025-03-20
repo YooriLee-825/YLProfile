@@ -1,56 +1,70 @@
 import React from 'react';
 import ExperienceList from '../components/ExperienceList';
-import SocialIcons from '../components/SocialIcons';
 import ProjectList from '../components/ProjectList';
+import SocialIcons from '../components/SocialIcons';
 import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
   return (
-    <div className="flex justify-center bg-[#ffebda] text-gray-900 min-h-screen">
-      {/* 중앙 정렬을 위한 컨테이너 */}
-      <div className="max-w-7xl w-full flex flex-col lg:flex-row">
-        {/* 왼쪽 사이드바 (40%) */}
-        <aside className="w-1/4 bg-gray-100 p-10 fixed left-30 top-0 h-screen flex flex-col justify-between">
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900">Yoori Lee</h1>
-            <h2 className="text-lg font-bold text-gray-600 mt-2">
+    <div id="home" className="bg-white min-h-screen">
+      {/* 가운데 정렬 및 최대 폭 제한 */}
+      <div className="max-w-7xl mx-auto px-8 py-10 flex flex-col md:flex-row gap-8">
+        {/* 왼쪽 영역: 모바일에서는 전체폭, md 이상에서는 40% + fixed */}
+        <aside className="w-full md:w-[40%] bg-white bg-opacity-90 p-10 md:fixed left-0 top-0 h-auto md:h-screen shadow-xl backdrop-blur-sm flex flex-col justify-between">
+          {/* 상단 프로필 영역 */}
+          <div className="mt-12 mb-8 ml-40">
+            <h1 className="text-3xl font-bold text-gray-900">Yoori Lee</h1>
+            <h2 className="font-semibold text-gray-600 mt-1">
               Full Stack Web Developer
             </h2>
-            <p className="text-gray-600 mt-4">
+            <p className="text-sm text-gray-600 mt-2 leading-relaxed">
               I make the web easy, smooth, and user-friendly for everyone!
             </p>
-
-            {/* 네비게이션 */}
-            <nav className="mt-8">
-              <ul className="space-y-3 text-gray-700">
-                <li>
-                  <a href="#about" className="hover:text-blue-500">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#experience" className="hover:text-blue-500">
-                    Experience
-                  </a>
-                </li>
-                <li>
-                  <a href="#projects" className="hover:text-blue-500">
-                    Projects
-                  </a>
-                </li>
-              </ul>
-            </nav>
           </div>
 
+          {/* 네비게이션 */}
+          <nav className="mb-8 ml-40">
+            <ul className="space-y-2 text-gray-700">
+              <li>
+                <a
+                  href="#home"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#experience"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Experience
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#projects"
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  Projects
+                </a>
+              </li>
+            </ul>
+          </nav>
+
           {/* 소셜 아이콘 */}
-          <SocialIcons />
+          <div className="ml-40">
+            <SocialIcons />
+          </div>
         </aside>
 
-        {/* 오른쪽 메인 콘텐츠 (60%) */}
-        <main id="about" className="w-3/5 ml-auto p-10 h-screen">
-          {/* 소개 섹션 */}
-          <section className="max-w-2xl">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">About Me</h2>
+        {/* 오른쪽 영역: 모바일에서는 전체폭, md 이상에서는 60% */}
+        <main className="w-full md:w-[60%] ml-0 md:ml-auto p-10">
+          {/* About 섹션 */}
+          <section className="mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 border-b border-gray-200 pb-2">
+              About Me
+            </h2>
             <p className="text-gray-700 leading-relaxed">
               I'm a developer passionate about learning new knowledge and
               continuously growing my skills. My goal is to create user-friendly
@@ -63,32 +77,38 @@ const Home: React.FC = () => {
               constantly expanding my own understanding through continuous
               learning.
             </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
+            <p className=" text-gray-700 leading-relaxed mt-4">
               In the past, I gained software development experience in diverse
               environments in Korea, working as a Full Stack Developer in
               hospitals, public institutions, and research centers.
             </p>
-            <p className="text-gray-700 leading-relaxed mt-4">
+            <p className=" text-gray-700 leading-relaxed mt-4">
               In my spare time, I enjoy running, taking walks with my dog, and
               relaxing with music and coffee.
             </p>
           </section>
 
-          {/* 경험 섹션 */}
-          <ExperienceList />
+          {/* Experience 섹션 */}
+          <section id="experience" className="mb-16">
+            <ExperienceList />
+          </section>
 
+          {/* Résumé 링크 */}
           <a
-            href="/Yoori-Lee-Resume.pdf" // PDF 파일의 경로
+            href="/Yoori-Lee-Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-lg font-semibold text-gray-800 hover:text-gray-600 mt-10 mb-6 mx-auto"
+            className="block text-sm font-semibold text-gray-800 transition-colors hover:text-gray-600 mb-16"
           >
             View Full Résumé
           </a>
 
-          {/* 프로젝트 섹션 추가 */}
-          <ProjectList />
-          {/* Footer 추가 */}
+          {/* Projects 섹션 */}
+          <section id="projects" className="mb-16">
+            <ProjectList />
+          </section>
+
+          {/* Footer */}
           <Footer />
         </main>
       </div>

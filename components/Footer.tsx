@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="mt-12 py-6 text-center text-gray-600 text-sm">
+    <footer className="mt-12 py-6 text-gray-600 text-sm">
       <p>
         This portfolio was <span className="italic">designed</span> and{' '}
         <span className="italic">developed</span> by me, focusing on a{' '}

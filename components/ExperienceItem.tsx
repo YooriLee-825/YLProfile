@@ -26,42 +26,42 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
       href={link || '#'}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-gray-100 p-6 rounded-lg shadow-md flex flex-col md:flex-row transition-all duration-300 hover:shadow-lg hover:bg-gray-200 cursor-pointer"
+      className="block p-4 transition-colors duration-300 hover:bg-gray-50 cursor-pointer"
+      style={{ backgroundColor: 'transparent' }} // 카드 배경 투명
     >
-      {/* 왼쪽 - 날짜 */}
-      <div className="md:w-1/4 text-gray-600 font-medium">
-        <p>{date}</p>
-      </div>
+      <div className="md:flex">
+        {/* 날짜 부분 */}
+        <div className="md:w-1/4 text-gray-600 font-medium text-xs mb-2 md:mb-0">
+          {date}
+        </div>
 
-      {/* 오른쪽 - 직책 및 설명 */}
-      <div className="md:w-3/4">
-        <h3 className="text-xl font-bold text-gray-900">
-          {title}, {company}
-        </h3>
+        {/* 내용 부분 */}
+        <div className="md:w-3/4">
+          <h3 className="text-sm font-bold text-gray-900">
+            {title}, {company}
+          </h3>
 
-        {/* 프로젝트 & 옵션 - 스타일로 구분 */}
-        {project && (
-          <p className="text-base font-semibold text-gray-600 mt-3">
-            {project}
-          </p>
-        )}
-        {option && (
-          <p className="text-base font-semibold text-gray-600 mt-1">{option}</p>
-        )}
+          {project && (
+            <p className="text-xs font-semibold text-gray-600 mt-1">
+              {project}
+            </p>
+          )}
+          {option && (
+            <p className="text-xs font-semibold text-gray-600 mt-1">{option}</p>
+          )}
 
-        {/* 설명 부분 */}
-        <p className="text-gray-700 mt-4">{description}</p>
+          <p className="text-gray-700 mt-2 text-xs">{description}</p>
 
-        {/* 기술 태그 */}
-        <div className="mt-4 flex flex-wrap gap-2">
-          {skills.map((skill, index) => (
-            <span
-              key={index}
-              className="px-3 py-1 text-sm bg-blue-500 text-white rounded-full"
-            >
-              {skill}
-            </span>
-          ))}
+          <div className="mt-2 flex flex-wrap gap-2">
+            {skills.map((skill, index) => (
+              <span
+                key={index}
+                className="px-2 py-0.5 text-xs bg-blue-500 text-white rounded-full"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </a>
