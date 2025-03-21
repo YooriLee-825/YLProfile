@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         <span className="font-bold">Tailwind CSS</span>, and deployed with{' '}
         <span className="font-semibold">Vercel</span>.
       </p>
-      <p className="mt-2">
+      {/* <p className="mt-2">
         This project incorporates{' '}
         <span className="font-semibold">i18n for multilingual support</span>,
         <span className="font-semibold"> optimized performance and SEO</span>,
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
         The codebase is managed using{' '}
         <span className="font-semibold">GitHub</span> for version control and
         collaboration.
-      </p>
+      </p> */}
     </footer>
   );
 };

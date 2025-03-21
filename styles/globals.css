@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 전체 body 배경 색상 변경 */
-body {
-  @apply bg-[#ffebda] text-gray-900;
+.shadow-modern {
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
 }

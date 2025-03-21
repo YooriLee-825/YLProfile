@@ -27,7 +27,7 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
       target="_blank"
       rel="noopener noreferrer"
       className="block p-4 transition-colors duration-300 hover:bg-gray-50 cursor-pointer"
-      style={{ backgroundColor: 'transparent' }} // 카드 배경 투명
+      style={{ backgroundColor: 'transparent' }}
     >
       <div className="md:flex">
         {/* 날짜 부분 */}
@@ -52,11 +52,26 @@ const ExperienceItem: React.FC<ExperienceItemProps> = ({
 
           <p className="text-gray-700 mt-2 text-xs">{description}</p>
 
+          {/* 스킬 태그 영역 */}
           <div className="mt-2 flex flex-wrap gap-2">
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="px-2 py-0.5 text-xs bg-blue-500 text-white rounded-full"
+                className="
+                  inline-flex items-center
+                  px-3 py-1
+                  text-xs
+                  font-semibold
+                  text-white
+                  bg-gradient-to-r
+                  from-blue-500
+                  to-cyan-500
+                  rounded-full
+                  shadow-sm
+                  hover:scale-105
+                  transition-transform
+                  cursor-pointer
+                "
               >
                 {skill}
               </span>
