@@ -130,7 +130,7 @@ const Home: React.FC = () => {
               About Me
             </h2>
             <p className="text-gray-700 leading-relaxed">
-              I'm a developer passionate about learning new knowledge and
+              I&apos;m a developer passionate about learning new knowledge and
               continuously growing my skills. My goal is to create user-friendly
               applications with a user-first mindset, bridging the gap between
               developers and customers to enhance overall satisfaction.
@@ -171,7 +171,7 @@ const Home: React.FC = () => {
           <Footer />
         </main>
       </div>
-      <style jsx>{`
+      <style>{`
         @media (min-width: 768px) {
           .card-margin {
             margin-left: calc((100vw - 1280px) / 2 - 100px);
