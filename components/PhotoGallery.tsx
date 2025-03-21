@@ -8,7 +8,7 @@ interface PhotoGalleryProps {
 const PhotoGallery: React.FC<PhotoGalleryProps> = ({ images, marginLeft }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const [screenWidth, setScreenWidth] = useState<number>(
-    typeof window !== 'undefined' ? window.innerWidth : 0
+    typeof window !== 'undefined' ? window.innerWidth : 1024
   );
 
   useEffect(() => {

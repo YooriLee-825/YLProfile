@@ -54,7 +54,7 @@ const Home: React.FC = () => {
                   <div className="flex flex-col space-y-2">
                     <a
                       href="mailto:yoori.lee825@gmail.com"
-                      className="text-sm font-bold text-gray-900 hover:text-gray-400 transition-colors"
+                      className="text-sm text-gray-900 hover:text-gray-400 transition-colors"
                     >
                       yoori.lee825@gmail.com
                     </a>
@@ -62,7 +62,7 @@ const Home: React.FC = () => {
                       href="https://github.com/YooriLee-825"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-bold text-gray-900 hover:text-gray-400 transition-colors"
+                      className="text-sm text-gray-900 hover:text-gray-400 transition-colors"
                     >
                       github.com/YooriLee-825
                     </a>
@@ -70,7 +70,7 @@ const Home: React.FC = () => {
                       href="https://www.linkedin.com/in/yoori-lee-d0825b/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sm font-bold text-gray-900 hover:text-gray-400 transition-colors"
+                      className="text-sm text-gray-900 hover:text-gray-400 transition-colors"
                     >
                       linkedin.com/in/yoori-lee-d0825b
                     </a>
