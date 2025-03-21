@@ -6,9 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "prepare": "if [ \"$CI\" != \"true\" ]; then husky install; fi",
-    "postinstall": "if [ \"$CI\" != \"true\" ]; then husky install; fi"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "15.1.6",
