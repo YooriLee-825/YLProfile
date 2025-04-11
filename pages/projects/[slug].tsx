@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { projects } from '../../data/projects';
 import Image from 'next/image';
 import Head from 'next/head';
+import React from 'react';
 
 const ProjectDetailPage = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const ProjectDetailPage = () => {
   return (
     <>
       <Head>
-        <title>{project.title} | Yoori's Portfolio</title>
+        <title>{project.title} | Yoori&apos;s Portfolio</title>
         <meta name="description" content={project.description} />
       </Head>
 
