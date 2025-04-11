@@ -4,13 +4,12 @@ import { projects } from '../data/projects';
 
 const ProjectList: React.FC = () => {
   return (
-    <section id="projects" className="mt-12 max-w-3xl">
-      <h2 className="text-3xl font-bold mb-4 text-gray-900 shadow-modern">
+    <section id="projects" className="py-24 px-6 md:px-12 bg-[#f7f5f0]">
+      <h2 className="text-4xl md:text-5xl font-bold mb-12 text-gray-800 text-center">
         Projects
       </h2>
 
-      {/* 프로젝트 목록 */}
-      <div className="space-y-6">
+      <div className="flex flex-wrap gap-6 justify-center md:justify-between">
         {projects.map((project, index) => (
           <ProjectItem key={index} {...project} />
         ))}

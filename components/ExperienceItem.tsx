@@ -1,85 +1,56 @@
+'use client';
+
 import React from 'react';
 
 interface ExperienceItemProps {
-  date: string;
   title: string;
   company: string;
-  project?: string;
-  option?: string;
-  link?: string;
+  date: string;
   description: string;
+  project?: string;
   skills: string[];
 }
 
 const ExperienceItem: React.FC<ExperienceItemProps> = ({
-  date,
   title,
   company,
-  project,
-  option,
-  link,
+  date,
   description,
+  project,
   skills,
 }) => {
   return (
-    <a
-      href={link || '#'}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="block p-4 transition-colors duration-300 hover:bg-gray-50 cursor-pointer"
-      style={{ backgroundColor: 'transparent' }}
-    >
-      <div className="md:flex">
-        {/* 날짜 부분 */}
-        <div className="md:w-1/4 text-gray-600 font-medium text-xs mb-2 md:mb-0">
-          {date}
-        </div>
+    <div className="flex gap-6 relative pl-6">
+      {/* Vertical line */}
+      <div className="absolute left-1 top-0 bottom-0 w-px bg-gray-300" />
 
-        {/* 내용 부분 */}
-        <div className="md:w-3/4">
-          <h3 className="text-sm font-bold text-gray-900">
-            {title}, {company}
-          </h3>
+      {/* Date dot */}
+      <div className="absolute -left-1 top-1 w-2 h-2 bg-blue-500 rounded-full" />
 
-          {project && (
-            <p className="text-xs font-semibold text-gray-600 mt-1">
-              {project}
-            </p>
-          )}
-          {option && (
-            <p className="text-xs font-semibold text-gray-600 mt-1">{option}</p>
-          )}
-
-          <p className="text-gray-700 mt-2 text-xs">{description}</p>
-
-          {/* 스킬 태그 영역 */}
-          <div className="mt-2 flex flex-wrap gap-2">
-            {skills.map((skill, index) => (
-              <span
-                key={index}
-                className="
-                  inline-flex items-center
-                  px-3 py-1
-                  text-xs
-                  font-semibold
-                  text-white
-                  bg-gradient-to-r
-                  from-blue-500
-                  to-cyan-500
-                  rounded-full
-                  shadow-sm
-                  hover:scale-105
-                  transition-transform
-                  cursor-pointer
-                "
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
+      {/* Content */}
+      <div className="flex-1">
+        <p className="text-sm text-gray-400 font-mono mb-1">{date}</p>
+        <h3 className="text-lg font-bold text-gray-800">
+          {title} <span className="text-gray-500 font-normal">@ {company}</span>
+        </h3>
+        {project && (
+          <p className="text-sm text-gray-500 italic mt-1">
+            Project: {project}
+          </p>
+        )}
+        <p className="text-[15px] text-gray-700 mt-2">{description}</p>
+        <div className="flex flex-wrap gap-2 mt-3">
+          {skills.map((skill, idx) => (
+            <span
+              key={idx}
+              className="px-3 py-1 text-xs bg-gradient-to-br from-indigo-300 to-purple-200 text-gray-900 rounded-full font-semibold"
+            >
+              {skill}
+            </span>
+          ))}
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
