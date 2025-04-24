@@ -31,6 +31,6 @@ export const experiences = [
     link: 'https://rms.inha.com/websquare/websquare.html?w2xPath=/wqui/irb/imp/mp/IRB_IMPMP_0010.xml',
     description:
       'Developed a web-based research project management platform using Java, Oracle, and JavaScript, streamlining operations and reducing software costs. Designed system architecture, managed data migration, and optimized database performance for scalability. Implemented a secure payment gateway to enhance security and cost efficiency. Focused on user-friendly development to improve customer satisfaction.',
-    skills: ['JavaScript', 'TypeScript', 'React', 'Storybook'],
+    skills: ['JavaScript', 'TypeScript', 'React', 'Documentation'],
   },
 ];

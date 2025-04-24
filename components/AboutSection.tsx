@@ -7,6 +7,7 @@ const AboutSection = () => {
       id="about"
       className="mt-[77vh] flex flex-col md:flex-row justify-between items-start w-full pt-18 px-6 md:px-12 z-10"
     >
+      {/* Left column: About text */}
       <div className="w-full md:w-1/2">
         <p className="uppercase text-sm text-gray-500 mb-2">About</p>
         <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
@@ -22,6 +23,8 @@ const AboutSection = () => {
           always aiming to make tech feel a little more human.
         </p>
       </div>
+
+      {/* Right column: Empty spacer for layout balance (only shown on desktop) */}
       <div className="hidden md:block w-full md:w-1/2" />
     </section>
   );

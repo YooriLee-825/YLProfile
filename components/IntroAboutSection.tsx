@@ -1,6 +1,5 @@
 'use client';
-import React from 'react';
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import BusinessCard3D from '../components/BusinessCard3D';
 import TypedTitle from '../components/TypedTitle';
@@ -17,12 +16,13 @@ const IntroAboutSection = () => {
   const [showCard, setShowCard] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
 
-  // Track scroll for background and card movement
+  // Track scroll progress for animations
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start start', 'end start'],
   });
 
+  // Card rotation and movement based on scroll
   const rotateY = useTransform(scrollYProgress, [0.2, 0.3], [0, 180]);
   const smoothRotateY = useSpring(rotateY, { stiffness: 80, damping: 20 });
 
@@ -36,6 +36,7 @@ const IntroAboutSection = () => {
   );
   const smoothRotateZ = useSpring(rotateZ, { stiffness: 70, damping: 20 });
 
+  // Background fade and color transition on scroll
   const backgroundOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const backgroundColor = useTransform(
     scrollYProgress,
@@ -48,28 +49,24 @@ const IntroAboutSection = () => {
     ['#f4f4f4', '#222']
   );
 
-  // Delay before typing starts
+  // Start typing effect after short delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setStartTyping(true);
       setShowCursor(true);
     }, 800);
-
     return () => clearTimeout(timer);
   }, []);
 
-  // Hide the cursor after blinking
+  // Cursor blinks for a few seconds then disappears
   useEffect(() => {
     if (showCursor) {
-      const timer = setTimeout(() => {
-        setShowCursor(false);
-      }, 8000); // cursor blinks for 8s
-
+      const timer = setTimeout(() => setShowCursor(false), 8000);
       return () => clearTimeout(timer);
     }
   }, [showCursor]);
 
-  // After typing ends, show right side + card + scroll prompt
+  // After typing ends, show menu, card, and scroll prompt one by one
   const handleTypingDone = () => {
     setTimeout(() => setShowRight(true), 500);
     setTimeout(() => setShowCard(true), 1200);
@@ -82,7 +79,7 @@ const IntroAboutSection = () => {
       style={{ backgroundColor, color: textColor }}
       className="min-h-[200vh] relative overflow-hidden font-['Inter'] transition-colors duration-700"
     >
-      {/* Background gradient overlay */}
+      {/* Full-screen gradient background with fade-out on scroll */}
       <motion.div
         className="absolute inset-0 z-0"
         style={{
@@ -92,9 +89,9 @@ const IntroAboutSection = () => {
         }}
       />
 
-      {/* Top section */}
+      {/* Main content: Left = Typed text, Right = Menu */}
       <div className="relative z-10 flex flex-col md:flex-row w-full min-h-[48vh]">
-        {/* Left: large typing text */}
+        {/* Left: Typing animation */}
         <div className="flex-1 p-6 md:p-12 mt-[10vh]">
           <TypedTitle
             startTyping={startTyping}
@@ -103,7 +100,7 @@ const IntroAboutSection = () => {
           />
         </div>
 
-        {/* Right: intro and menu */}
+        {/* Right: Menu appears after typing is done */}
         {showRight && (
           <motion.div
             initial={{ x: 40, opacity: 0 }}
@@ -116,7 +113,7 @@ const IntroAboutSection = () => {
         )}
       </div>
 
-      {/* Business card */}
+      {/* 3D business card appears and animates on scroll */}
       {showCard && (
         <motion.div
           style={{ x, y, rotateZ: smoothRotateZ, rotateY: smoothRotateY }}
@@ -129,10 +126,10 @@ const IntroAboutSection = () => {
         </motion.div>
       )}
 
-      {/* Scroll down hint */}
+      {/* Scroll prompt appears last */}
       {showScroll && <ScrollPrompt />}
 
-      {/* About section */}
+      {/* About section at the bottom */}
       <AboutSection />
     </motion.section>
   );

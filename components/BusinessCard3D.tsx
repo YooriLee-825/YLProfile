@@ -12,24 +12,25 @@ import Image from 'next/image';
 import emo from '../public/images/profile/emo.png';
 
 interface BusinessCard3DProps {
-  flipped?: boolean;
+  flipped?: boolean; // Used to control initial Y rotation (default: false)
 }
 
 const BusinessCard3D: React.FC<BusinessCard3DProps> = ({ flipped = false }) => {
   const ref = useRef<HTMLDivElement>(null);
 
-  // 마우스 위치값
+  // Mouse position values (0 to 1)
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
 
-  // 마우스 기반 틸트
+  // Create tilt angles based on mouse position
   const tiltX = useTransform(mouseY, [0, 1], [10, -10]);
   const tiltY = useTransform(mouseX, [0, 1], [-10, 10]);
 
+  // Smooth tilt animation
   const smoothTiltX = useSpring(tiltX, { stiffness: 80, damping: 18 });
   const smoothTiltY = useSpring(tiltY, { stiffness: 80, damping: 18 });
 
-  // 스크롤 회전
+  // Scroll-based Y rotation (flipping effect)
   const { scrollYProgress } = useScroll();
   const scrollRotateY = useTransform(
     scrollYProgress,
@@ -41,7 +42,7 @@ const BusinessCard3D: React.FC<BusinessCard3DProps> = ({ flipped = false }) => {
     damping: 20,
   });
 
-  // 마우스 핸들링
+  // Update mouseX/mouseY when the mouse moves over the card
   const handleMouseMove = (e: React.MouseEvent) => {
     const bounds = ref.current?.getBoundingClientRect();
     if (!bounds) return;
@@ -53,6 +54,7 @@ const BusinessCard3D: React.FC<BusinessCard3DProps> = ({ flipped = false }) => {
     mouseY.set(y);
   };
 
+  // Reset tilt when the mouse leaves
   const handleMouseLeave = () => {
     mouseX.set(0.5);
     mouseY.set(0.5);
@@ -74,7 +76,7 @@ const BusinessCard3D: React.FC<BusinessCard3DProps> = ({ flipped = false }) => {
         }}
         className="w-full h-full relative"
       >
-        {/* 앞면 */}
+        {/* Front side */}
         <div
           className="absolute w-full h-full bg-white border border-gray-300 shadow-md rounded-md px-8 py-6 flex items-center justify-between gap-10 text-[15px] font-light tracking-wide"
           style={{
@@ -84,34 +86,34 @@ const BusinessCard3D: React.FC<BusinessCard3DProps> = ({ flipped = false }) => {
             backgroundRepeat: 'no-repeat',
           }}
         >
-          {/* 리본 북마크 */}
+          {/* Top-right bookmark ribbon */}
           <div className="absolute top-2 right-2 z-10">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              fill="#ef4444" // tailwind의 red-500과 유사
+              fill="#ef4444"
               className="w-10 h-10"
             >
               <path d="M6 2a2 2 0 0 0-2 2v18l8-5.333L20 22V4a2 2 0 0 0-2-2H6z" />
             </svg>
           </div>
 
-          {/* 왼쪽 섹션 */}
+          {/* Left side: name & role */}
           <div className="flex flex-col justify-center h-full basis-1/3">
             <p className="text-[18px] text-gray-800 font-semibold">Yoori Lee</p>
             <p className="text-gray-500 mt-1">Full-Stack Developer</p>
           </div>
 
-          {/* 중간 선 */}
+          {/* Divider */}
           <div className="w-px h-[70%] bg-gray-300" />
 
-          {/* 오른쪽 섹션 */}
+          {/* Right side: contact info */}
           <div className="flex flex-col justify-center h-full space-y-2 basis-2/3 text-[14px] text-gray-700">
             <p>
               <span className="font-medium">Email:</span>{' '}
               <a
                 href="mailto:yoori.lee825@gmail.com"
-                className="font-medium text-gray-700 hover:text-gray-500  transition"
+                className="font-medium text-gray-700 hover:text-gray-500 transition"
               >
                 yoori.lee825@gmail.com
               </a>
@@ -141,7 +143,7 @@ const BusinessCard3D: React.FC<BusinessCard3DProps> = ({ flipped = false }) => {
           </div>
         </div>
 
-        {/* 뒷면 */}
+        {/* Back side */}
         <div
           className="absolute w-full h-full bg-white border border-gray-300 shadow-md rounded-md px-8 py-6 flex flex-col items-center justify-center text-center text-[15px] font-light tracking-wide"
           style={{

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 const ScrollPrompt = () => {
   return (
+    // Fade-in animation with a pulsing scroll hint
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

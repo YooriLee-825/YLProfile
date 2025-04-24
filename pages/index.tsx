@@ -11,6 +11,7 @@ import Head from 'next/head';
 const Home: React.FC = () => {
   const [showNav, setShowNav] = useState(false);
 
+  // Show TopNavBar only after scrolling past the first screen
   useEffect(() => {
     const handleScroll = () => {
       const triggerPoint = window.innerHeight * 0.9;
@@ -27,6 +28,7 @@ const Home: React.FC = () => {
 
   return (
     <>
+      {/* Meta tags for SEO and browser tab info */}
       <Head>
         <title>Yoori | Full-Stack Developer</title>
         <meta
@@ -35,14 +37,21 @@ const Home: React.FC = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Page background and color theme */}
       <div className="bg-[#f7f5f0] text-[#1a1a1a] transition-colors duration-300">
+        {/* Show top navigation bar after scrolling */}
         {showNav && <TopNavBar />}
 
+        {/* Intro + About section with animated business card */}
         <IntroAboutSection />
 
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 space-y-24">
-          <ExperienceSection />
+        {/* Experience timeline section */}
+        <ExperienceSection />
 
+        {/* Main content area including resume, projects, and contact */}
+        <main className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 space-y-24">
+          {/* Resume download link */}
           <section className="text-center">
             <a
               href="/Yoori-Lee-Resume.pdf"
@@ -54,11 +63,15 @@ const Home: React.FC = () => {
             </a>
           </section>
 
+          {/* Projects list */}
           <ProjectList />
+
+          {/* Contact section with form or links */}
           <ContactSection />
         </main>
 
-        <Footer />
+        {/* Footer with credits and tech stack */}
+        {/* <Footer /> */}
       </div>
     </>
   );

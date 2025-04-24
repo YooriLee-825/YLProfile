@@ -4,7 +4,7 @@ import React from 'react';
 const IntroMenu = () => {
   return (
     <>
-      {/* Menu links */}
+      {/* Top-right navigation menu */}
       <div className="absolute top-0 right-6 z-[9999] flex space-x-8 text-[15px] font-bold uppercase tracking-widest">
         {['about', 'experience', 'projects'].map((label) => (
           <a
@@ -20,7 +20,7 @@ const IntroMenu = () => {
         ))}
       </div>
 
-      {/* Short intro sentence */}
+      {/* One-line personal intro */}
       <p className="text-[2.5vw] md:text-[2vw] font-light leading-tight mt-[5vh] font-['Eurostile']">
         Full-stack developer who loves building & solving real problems with
         thoughtful code.
