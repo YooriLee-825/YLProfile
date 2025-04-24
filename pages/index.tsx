@@ -5,7 +5,7 @@ import IntroAboutSection from '../components/IntroAboutSection';
 import ExperienceSection from '../components/ExperienceSection';
 import ProjectList from '../components/ProjectList';
 import ContactSection from '../components/ContactSection';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 import Head from 'next/head';
 
 const Home: React.FC = () => {
