@@ -1,42 +1,50 @@
+'use client';
 import React from 'react';
+import { motion } from 'framer-motion';
+import { FiMail, FiGithub, FiLinkedin } from 'react-icons/fi';
 
-const ContactSection: React.FC = () => {
+const ContactSection = () => {
   return (
-    <section
+    <motion.section
       id="contact"
-      className="text-center py-20 max-w-2xl mx-auto px-4 sm:px-6"
+      className="w-full max-w-[720px] mx-auto text-center px-6 md:px-0 py-24"
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
     >
-      <h2 className="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
-      <p className="text-gray-600 mb-8">
-        I&apos;m always open to new opportunities, collaborations, or just a
-        chat. Feel free to reach out!
+      <h2 className="text-4xl font-bold mb-6">Let&apos;s Connect</h2>
+      <p className="text-[16px] text-gray-600 leading-relaxed mb-10">
+        Whether you want to collaborate or just say hi,
+        <br />
+        feel free to reach out anytime.
       </p>
 
-      <div className="flex justify-center gap-6 flex-wrap">
+      <div className="flex justify-center gap-6 text-[20px] text-gray-600">
         <a
           href="mailto:yoori.lee825@gmail.com"
-          className="text-sm font-medium text-blue-600 hover:text-blue-400 transition"
+          className="hover:text-blue-500 transition"
         >
-          yoori.lee825@gmail.com
+          <FiMail />
         </a>
         <a
           href="https://github.com/YooriLee-825"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-medium text-gray-700 hover:text-gray-500 transition"
+          className="hover:text-blue-500 transition"
         >
-          GitHub ↗
+          <FiGithub />
         </a>
         <a
           href="https://www.linkedin.com/in/yoori-lee-d0825b/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-medium text-blue-700 hover:text-blue-500 transition"
+          className="hover:text-blue-500 transition"
         >
-          LinkedIn ↗
+          <FiLinkedin />
         </a>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
