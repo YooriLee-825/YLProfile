@@ -12,8 +12,9 @@ import ScrollPrompt from '../ScrollPrompt';
 const IntroAboutSectionMobile = () => {
   const aboutTriggerRef = useRef(null);
 
+  // Scroll observer for background color switching
   const { ref: aboutRef, inView: aboutInView } = useInView({
-    threshold: 0.6,
+    threshold: 0.6, // About trigger when 60% visible
     triggerOnce: false,
   });
 
@@ -22,7 +23,7 @@ const IntroAboutSectionMobile = () => {
   const [showCard, setShowCard] = useState(false);
   const [showScroll, setShowScroll] = useState(false);
 
-  // When typing animation is complete, trigger sequence
+  // Sequence after typing animation done
   const handleTypingDone = () => {
     setTimeout(() => setShowMenu(true), 400); // Show IntroMenu
     setTimeout(() => setShowCard(true), 900); // Show BusinessCard3D
@@ -33,7 +34,7 @@ const IntroAboutSectionMobile = () => {
     <motion.section
       ref={aboutTriggerRef}
       style={{
-        backgroundColor: aboutInView ? '#1a2238' : '#f7f5f0',
+        backgroundColor: aboutInView ? '#1a2238' : '#f7f5f0', // ✅ intro dark, about light
         color: aboutInView ? '#f4f4f4' : '#222',
       }}
       className="min-h-[130vh] font-['Inter'] overflow-x-hidden transition-colors duration-700"
