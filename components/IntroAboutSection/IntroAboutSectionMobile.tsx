@@ -33,8 +33,8 @@ const IntroAboutSectionMobile = () => {
     <motion.section
       ref={aboutTriggerRef}
       style={{
-        backgroundColor: aboutInView ? '#1a2238' : '#f7f5f0',
-        color: aboutInView ? '#f4f4f4' : '#222',
+        backgroundColor: '#1a2238',
+        color: '#f4f4f4',
       }}
       className="min-h-[130vh] font-['Inter'] overflow-x-hidden transition-colors duration-700"
     >
