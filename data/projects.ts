@@ -5,7 +5,7 @@ export const projects = [
     description:
       'A personal portfolio site with elegant animation and thoughtful layout.',
     image: '/images/project/my-profile.png',
-    link: 'https://yl-profile.vercel.app',
+    link: 'https://yoori.work',
     tags: [
       'Next.js',
       'TypeScript',

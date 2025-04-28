@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import TopNavBar from '../components/TopNavBar';
-import IntroAboutSection from '../components/IntroAboutSection';
+import IntroAboutSection from '../components/IntroAboutSection/IntroAboutSection';
 import ExperienceSection from '../components/ExperienceSection';
 import ProjectList from '../components/ProjectList';
 import ContactSection from '../components/ContactSection';

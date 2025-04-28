@@ -1,4 +1,5 @@
 'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ReactTyped } from 'react-typed';
@@ -15,7 +16,7 @@ const TypedTitle: React.FC<TypedTitleProps> = ({
   onTypingDone,
 }) => {
   return (
-    <h1 className="text-[18vw] md:text-[14vw] font-black uppercase leading-none tracking-tight font-['NotoSans'] relative inline-block">
+    <h1 className="text-[18vw] md:text-[14vw] font-black uppercase leading-none tracking-tight font-['NotoSans'] relative inline-block text-center md:text-left">
       {/* Show typed text when triggered */}
       {startTyping && (
         <>
@@ -34,7 +35,7 @@ const TypedTitle: React.FC<TypedTitleProps> = ({
               animate={{
                 opacity: Array(20)
                   .fill(1)
-                  .map((_, i) => (i % 2 === 0 ? 1 : 0)), // Blink effect
+                  .map((_, i) => (i % 2 === 0 ? 1 : 0)),
               }}
               transition={{ duration: 11, ease: 'linear' }}
               className="absolute left-full top-1/2 -translate-y-1/2"
