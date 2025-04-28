@@ -12,7 +12,7 @@ import ScrollPrompt from '../ScrollPrompt';
 const IntroAboutSectionMobile = () => {
   const aboutTriggerRef = useRef(null);
 
-  const { ref: aboutRef, inView: aboutInView } = useInView({
+  const { ref: aboutRef } = useInView({
     threshold: 0.2,
     triggerOnce: false,
   });
